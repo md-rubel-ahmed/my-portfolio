@@ -1,150 +1,59 @@
-<<<<<<< HEAD
-//typing script js
-
-var typed = new Typed(".typing",{
-    strings: ["web Designer",
-        "Frontend Developer",
-        "HTML CSS Expert",
-        "JavaScript Developer",
-          "Landing Page Designer",
-        "Modern Website Designer",
-        ],
-        typeSpeed:80,
-        backSpeed:80,  
-     
+// -------------------------------
+// Typing Effect
+// -------------------------------
+var typed = new Typed(".typing", {
+    strings: ["Web Designer", "Frontend Developer", "HTML CSS Expert", "JavaScript Developer", "Landing Page Designer", "Modern Website Designer"],
+    typeSpeed: 80,
+    backSpeed: 60,
+    loop: true
 });
 
-var typed = new Typed(".typing2",{
-    strings: [ "JavaScript Developer",
-        "Frontend Developer",
-        "HTML CSS Expert",
-        "web Designer",
-        "Landing Page Designer",
-        "Modern Website Designer",
-        ],
-        typeSpeed:100,
-        backSpeed:60,  
-    
+var typed2 = new Typed(".typing2", {
+    strings: ["JavaScript Developer", "Frontend Developer", "HTML CSS Expert", "Web Designer", "Landing Page Designer", "Modern Website Designer"],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true
 });
 
-//show/hide faqs answer 
-
-const faqs = document.querySelectorAll(".faq");
-faqs.forEach( faq =>{
-faq.addEventListener("click", () =>{
-faq.classList.toggle("open");
-
-//change icon 
-const icon = faq.querySelector(".faq-icon i");
-if(icon.className === "fa-solid fa-plus"){
-    icon.className = "fa-solid fa-minus";
-}
-else{
-    icon.className = "fa-solid fa-plus";
-}
-
-    } )
-})
-
-//show/hide navmenu 
-
-const menu = document .querySelector(".nav-manu");
-
-const menuBtn = document.querySelector("#open-menu-btn");
-
-const closeBtn = document.querySelector("#close-menu-btn");
-menuBtn.addEventListener("click", () =>{
-menu.style.display = "flex";
-closeBtn.style.display = "inline-block";
- menuBtn.style.display = "none"
-})
-
-//close nav menu  
-
-const closeNav =  () =>{
-    menu.style.display = "none";
-    closeBtn.style.display = "none";
-     menuBtn.style.display = "inline-block";
-}
-
-   closeBtn.addEventListener("click", closeNav);
-
-   //nav collo scroll change 
-   window.addEventListener("scroll", () =>{
-    document.querySelector("nav").classList.toggle("window-scroll",window.scroll>100);
-=======
-//typing script js
-
-var typed = new Typed(".typing",{
-    strings: ["web Designer",
-        "Frontend Developer",
-        "HTML CSS Expert",
-        "JavaScript Developer",
-          "Landing Page Designer",
-        "Modern Website Designer",
-        ],
-        typeSpeed:80,
-        backSpeed:80,  
-     
+// -------------------------------
+// FAQ Toggle
+// -------------------------------
+document.querySelectorAll(".faq").forEach(faq => {
+    faq.addEventListener("click", () => {
+        faq.classList.toggle("open");
+        const icon = faq.querySelector(".faq-icon i");
+        if (icon) {
+            icon.className = icon.className === "fa-solid fa-plus" ? "fa-solid fa-minus" : "fa-solid fa-plus";
+        }
+    });
 });
 
-var typed = new Typed(".typing2",{
-    strings: [ "JavaScript Developer",
-        "Frontend Developer",
-        "HTML CSS Expert",
-        "web Designer",
-        "Landing Page Designer",
-        "Modern Website Designer",
-        ],
-        typeSpeed:100,
-        backSpeed:60,  
-    
+// ===== Navbar Toggle =====
+
+const navMenu = document.querySelector(".nav-manu");
+const openMenuBtn = document.getElementById("open-menu-btn");
+const closeMenuBtn = document.getElementById("close-menu-btn");
+
+// Open
+openMenuBtn.addEventListener("click", () => {
+    navMenu.style.display = "flex";
+    openMenuBtn.style.display = "none";
+    closeMenuBtn.style.display = "inline-block";
 });
 
-//show/hide faqs answer 
+// Close
+closeMenuBtn.addEventListener("click", () => {
+    navMenu.style.display = "none";
+    openMenuBtn.style.display = "inline-block";
+    closeMenuBtn.style.display = "none";
+});
 
-const faqs = document.querySelectorAll(".faq");
-faqs.forEach( faq =>{
-faq.addEventListener("click", () =>{
-faq.classList.toggle("open");
-
-//change icon 
-const icon = faq.querySelector(".faq-icon i");
-if(icon.className === "fa-solid fa-plus"){
-    icon.className = "fa-solid fa-minus";
-}
-else{
-    icon.className = "fa-solid fa-plus";
-}
-
-    } )
-})
-
-//show/hide navmenu 
-
-const menu = document .querySelector(".nav-manu");
-
-const menuBtn = document.querySelector("#open-menu-btn");
-
-const closeBtn = document.querySelector("#close-menu-btn");
-menuBtn.addEventListener("click", () =>{
-menu.style.display = "flex";
-closeBtn.style.display = "inline-block";
- menuBtn.style.display = "none"
-})
-
-//close nav menu  
-
-const closeNav =  () =>{
-    menu.style.display = "none";
-    closeBtn.style.display = "none";
-     menuBtn.style.display = "inline-block";
-}
-
-   closeBtn.addEventListener("click", closeNav);
-
-   //nav collo scroll change 
-   window.addEventListener("scroll", () =>{
-    document.querySelector("nav").classList.toggle("window-scroll",window.scroll>100);
->>>>>>> c3e78f356b6a6041549ba22f9ff34562d69b2600
-   } )
+// Scroll Effect
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector("nav");
+    if (window.scrollY > 100) {
+        nav.classList.add("window-scroll");
+    } else {
+        nav.classList.remove("window-scroll");
+    }
+});
